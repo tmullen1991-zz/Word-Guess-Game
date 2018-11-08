@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Word game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+
+<body class="bg-black text-white">
+    <div class="container px-0 w-100 mr-0 ml-0">
+        <div class="navbar-fixed-top text-center">
+            <img src="assets/images/LoRLogo.jpg"width=600px>
+        </div>
+        <h1 class="text-center text-white"> Guess the Lord of the Rings Character</h1>
+        <div class="text-center"><h3>Character:</h3><span id="displayUserInput">-</span></div>
+        <div class="text-center"><h3>Incorrect Letters:</h3><span id="alreadyUsedDisplay">-</span></div>
+        <div class="text-center"><h3>Guesses Remaining:</h3><span id="displayRemain">10</span></div>
+        <div class="text-center"><h3>Wins:</h3><span id="displayWins">0</span></div>
+        <div class="text-center"><h3>Losses:</h3><span id="displayLosses">0</span></div>
+        <div class="text-center"><img src="assets/images/middleearthmap.jpg" id= "getImageDisplay" width=400px> </div>
+    </div>
+    <script src="assets/javascript/game.js"></script>
+</body>
+
+</html>
