@@ -17,56 +17,6 @@ var remainDisplay = document.getElementById("displayRemain");
 var winsDisplay = document.getElementById("displayWins")
 var lossesDisplay = document.getElementById("displayLosses")
 
-// This function will be called if the player wins, each if statement brings up a unique 
-// image and audio file for the specific character. note that merry and pippin sounds are the same.
-function getImage() {
-    if (wordUsed === characters[0]) {
-        document.getElementById("getImageDisplay").src = "assets/images/gandalf.png"
-        audio = new Audio("assets/audio/gandalf_neverlate.wav");
-        audio.play();
-    }
-    if (wordUsed === characters[1]) {
-        document.getElementById("getImageDisplay").src = "assets/images/aragorn.jpg"
-        audio = new Audio("assets/audio/aragorn_ridehard.wav");
-        audio.play();
-    }
-    if (wordUsed === characters[2]) {
-        document.getElementById("getImageDisplay").src = "assets/images/Legolas.png"
-        audio = new Audio("assets/audio/legolas_near.wav");
-        audio.play();
-    }
-    if (wordUsed === characters[3]) {
-        document.getElementById("getImageDisplay").src = "assets/images/frodo.jpg"
-        audio = new Audio("assets/audio/frodo.mp3");
-        audio.play();
-    }
-    if (wordUsed === characters[4]) {
-        document.getElementById("getImageDisplay").src = "assets/images/sam.png"
-        audio = new Audio("assets/audio/journey.wav");
-        audio.play();
-    }
-    if (wordUsed === characters[5]) {
-        document.getElementById("getImageDisplay").src = "assets/images/pippin.jpeg"
-        audio = new Audio("assets/audio/imhungry.wav");
-        audio.play();
-    }
-    if (wordUsed === characters[6]) {
-        document.getElementById("getImageDisplay").src = "assets/images/merry.jpg"
-        audio = new Audio("assets/audio/imhungry.wav");
-        audio.play();
-    }
-    if (wordUsed === characters[7]) {
-        document.getElementById("getImageDisplay").src = "assets/images/Gimli.png"
-        audio = new Audio("assets/audio/axe.wav");
-        audio.play();
-    }
-    if (wordUsed === characters[8]) {
-        document.getElementById("getImageDisplay").src = "assets/images/Boromir.jpg"
-        audio = new Audio("assets/audio/boromir_evil.wav");
-        audio.play();
-    }
-}
-
 // This function resets the page. In it variables are reset and a random character is chosen 
 // from the characters array. The first for loop takes the randomly chosen word and pushes 
 // letters into an array (wordUsed) and pushes "_" into the unsolved array that diplays on the page (displayArray). 
@@ -75,19 +25,21 @@ function getImage() {
 // abc array contains only incorrect letters. The function will leave the (wordUsed) array only 
 // containing correct letters to be guessed and the (abc) array only containing inccorect letters.
 function reset() {
-    randomIndex = Math.floor(Math.random() * (characters.length + 1));
+    randomIndex = Math.floor(Math.random() * (characters.length));
     userInput = "";
     wordUsed = characters[randomIndex];
-    console.log("ANS:", wordUsed) //this will keep the answer on display in the console
     abc = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     wordArray = [];
     displayArray = [];
     remain = 5;
     remainDisplay.textContent = remain;
-    for (i = 0; i < wordUsed.length; i++) {
-        wordArray.push(wordUsed.charAt(i));
-        displayArray.push("_");
-        userInputDisplay.textContent = displayArray.join("  ");
+    if (wordUsed) {
+        for (i = 0; i < wordUsed.length; i++) {
+            wordArray.push(wordUsed.charAt(i));
+            displayArray.push("_");
+            userInputDisplay.textContent = displayArray.join("  ");
+        }
+        console.log("ANS:", wordUsed) //this will keep the answer on display in the console
     }
     for (i = 0; i < abc.length; i++) {
         if (wordArray.includes(abc[i])) {
@@ -146,3 +98,54 @@ document.onkeyup = function (event) {
 }
 // reset the page upon initial load
 reset();
+
+// This function will be called if the player wins, each if statement brings up a unique 
+// image and audio file for the specific character. note that merry and pippin sounds are the same.
+function getImage() {
+    if (wordUsed === characters[0]) {
+        document.getElementById("getImageDisplay").src = "assets/images/gandalf.png"
+        audio = new Audio("assets/audio/gandalf_neverlate.wav");
+        audio.play();
+    }
+    if (wordUsed === characters[1]) {
+        document.getElementById("getImageDisplay").src = "assets/images/aragorn.jpg"
+        audio = new Audio("assets/audio/aragorn_ridehard.wav");
+        audio.play();
+    }
+    if (wordUsed === characters[2]) {
+        document.getElementById("getImageDisplay").src = "assets/images/Legolas.png"
+        audio = new Audio("assets/audio/legolas_near.wav");
+        audio.play();
+    }
+    if (wordUsed === characters[3]) {
+        document.getElementById("getImageDisplay").src = "assets/images/frodo.jpg"
+        audio = new Audio("assets/audio/frodo.mp3");
+        audio.play();
+    }
+    if (wordUsed === characters[4]) {
+        document.getElementById("getImageDisplay").src = "assets/images/sam.png"
+        audio = new Audio("assets/audio/journey.wav");
+        audio.play();
+    }
+    if (wordUsed === characters[5]) {
+        document.getElementById("getImageDisplay").src = "assets/images/pippin.jpeg"
+        audio = new Audio("assets/audio/imhungry.wav");
+        audio.play();
+    }
+    if (wordUsed === characters[6]) {
+        document.getElementById("getImageDisplay").src = "assets/images/merry.jpg"
+        audio = new Audio("assets/audio/imhungry.wav");
+        audio.play();
+    }
+    if (wordUsed === characters[7]) {
+        document.getElementById("getImageDisplay").src = "assets/images/Gimli.png"
+        audio = new Audio("assets/audio/axe.wav");
+        audio.play();
+    }
+    if (wordUsed === characters[8]) {
+        document.getElementById("getImageDisplay").src = "assets/images/Boromir.jpg"
+        audio = new Audio("assets/audio/boromir_evil.wav");
+        audio.play();
+    }
+}
+
