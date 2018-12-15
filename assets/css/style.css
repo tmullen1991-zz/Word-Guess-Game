@@ -1,3 +1,6 @@
 .bg-black{
     background: black;
 }
+a{
+    color: white !important;
+}
