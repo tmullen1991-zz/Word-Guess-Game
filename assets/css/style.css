@@ -1,6 +1,10 @@
-.bg-black{
-    background: black;
+.row{
+    margin-top: 15px;
 }
-a{
-    color: white !important;
+body{
+    color: white;
+    font-family: 'Spectral', serif;
+}
+.card-image{
+    margin-left: 10px;
 }
